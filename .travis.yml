@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+    - docker
+
+before_install:
+    - docker build -t yash028/docker-angular -f Dockerfiel.dev .
+
+script:
+    - docker run yash028/docker-angular npm run test -- --coverage
