@@ -1,25 +1,10 @@
-dist: trusty
-
-sudo: false
-
-language: node_js
-
-node_js:
-    - "10"
+sudo: required
 
 services:
     - docker
-
-addons:
-    apt:
-        sources:
-        - google-chrome
-        packages:
-        - google-chrome-stable
-
 
 before_install:
     - docker build -t yash028/docker-angular -f Dockerfile.dev .
 
 script:
-    - docker run yash028/docker-angular npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+    - docker run yash028/docker-angular npm run test -- --watch=false
