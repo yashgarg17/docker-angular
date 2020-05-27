@@ -1,14 +1,22 @@
 dist: trusty
 
-sudo: required
-
-services:
-    - docker
+sudo: false
 
 language: node_js
 
 node_js:
     - "10"
+
+services:
+    - docker
+
+addons:
+    apt:
+        sources:
+        - google-chrome
+        packages:
+        - google-chrome-stable
+
 
 before_install:
     - docker build -t yash028/docker-angular -f Dockerfile.dev .
