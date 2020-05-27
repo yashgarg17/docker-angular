@@ -4,8 +4,7 @@ services:
     - docker
 
 before_install:
-    - export CHROME_BIN=chromium-browser
     - docker build -t yash028/docker-angular -f Dockerfile.dev .
 
 script:
-    - docker run yash028/docker-angular npm run test -- --watch=false
+    - docker run yash028/docker-angular npm run test -- --no-watch --code-coverage
