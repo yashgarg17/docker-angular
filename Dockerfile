@@ -1,4 +1,4 @@
-FROM node:12.2.0 as builder
+FROM node:12.2.0
 
 WORKDIR /app
 
@@ -14,4 +14,4 @@ FROM nginx
 
 # COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/dist/frontend /usr/share/nginx/html
+COPY --from=0 /app/dist/frontend /usr/share/nginx/html
